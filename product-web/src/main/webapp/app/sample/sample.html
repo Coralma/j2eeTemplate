@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default navbar-fixed-top" style="width: auto;">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#top"><img src="images/dashboard-logo.png" width="185px" alt=""></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarhead">
+                <ul class="nav navbar-nav navbar-left" style="margin-left: 15px;">
+                    <li>
+                        <a href="#" class="brand-label">基础数据查询</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-left: -25px;margin-right: -20px;" >
+                    <li><a href="#" ng-click="readyLogout()"><span class="glyphicon glyphicon-home home-icon" aria-hidden="true"></span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+</nav>
+
+<div class="header-placeholder"></div>
+
+<div class="evc-content">
+    <uib-tabset>
+        <!--<uib-tab ng-repeat="t in tabs track by t.id" index="t.id" select="tabSelected(t.id)" heading="{{ t.heading }}" >
+            <div ui-view="{{t.templateUrl}}"></div>
+        </uib-tab>-->
+        <uib-tab heading="配件" >
+            <div style="padding: 5px 0; ">
+                <bs-grid options="gridOptions" on-select="rowSelect" on-pagination-change="pageChange" on-sort-changed="sortChange"></bs-grid>
+            </div>
+        </uib-tab>
+        <uib-tab heading="工时" ></uib-tab>
+        <uib-tab heading="辅料" ></uib-tab>
+    </uib-tabset>
+
+</div>

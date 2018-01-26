@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+$icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+
+/*** Bootstrap Variables ***/
+$font-family-parts: "Microsoft YaHei", "Roboto Condensed ", " Arial Narrow ", " HelveticaNeueCondensed ", " HelveticaNeue-Condensed ", " Helvetica Neue Condensed ", " Tahoma ", " Arial ", " San Serif ", sans-serif !default;
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+/*** Dashboard Variables ***/
+$color-highlight: #3ca7ff;
+
+$input-field-height: 34px;
+$input-field-cell-height: 32px;
+$checkbox-field-cell-height: 20px;
+
+$table-head-bg: white;
+
+$data-error-color: red;
+$data-error-warning: yellow;
+
+$text-color-important: #161616;
+$text-color-normal: #717171;
+
+//请参考：http://getbootstrap.com/customize/
+//Color
+
+//Scaffolding
+$text-color: $text-color-normal;
+$link-color: $table-head-bg;
+$link-hover-color: $table-head-bg;
+//$link-hover-decoration: none;
+
+//Typography
+$font-family-base: $font-family-parts;
+$font-size-base: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-22: 22px;
+$font-size-24: 24px;
+$font-size-30: 30px;
+
+//Components
+$border-radius-base: 4px;
+$input-border-color: #D6D6D6;
+
+$input-color: black;
+$input-bg: transparent;
+$input-bg-disabled: lightgray;
+
+//grid system
+$grid-gutter-width: 20px;
+
+//Navbar
+$navbar-height: 40px;
+$navbar-margin-bottom: 0px;
+$navbar-border-radius: 0px;
+$navbar-padding-vertical: 11px;
+
+$navbar-default-color: #fff; //导航栏文字颜色
+$navbar-default-bg: #2f2f2f; //导航栏背景颜色
+
+$navbar-default-brand-hover-color: $navbar-default-color; //导航栏LOGO的文字颜色，同文字颜色
+
+$navbar-default-link-color: $navbar-default-color; //导航栏链接颜色，同文字颜色
+$navbar-default-link-active-color: $navbar-default-color; //导航栏Active的链接颜色，同文字颜色
+$navbar-default-link-active-bg: #464646; //导航栏Active的背景颜色
+$navbar-default-link-hover-color: $navbar-default-color; //导航栏Hover的链接颜色，同文字颜色
+$navbar-default-link-hover-bg: #464646; //导航栏Hover的背景颜色
+
+//Button
+$btn-border-radius-base: 4px;
+$btn-primary-bg: #ff9102;
+$btn-primary-border: #ff9102;
+$btn-primary-color: white;
+$fontsize-input: 12;
+
+//Panel
+$panel-primary-heading-bg: white;
+$panel-head-bar: $color-highlight;
+$heading-text-color: #fff;
+
+//Datetime Picker
+$abdtp-width: 250px;
+$abdtp-active-background-color: $table-head-bg;
+$abdtp-color-hover: $table-head-bg;
+
+//Table
+$table-head-font-size: $font-size-16;
+$table-cell-padding: 4px 4px;
+$table-head-bg: #2a89d8;
+$table-bg-active: #dcf8ff;
+$table-border-color: #e8e8e8;
+$table-row-height: 35px;
+$table-content-margin-diviation: -36px;
+
+//Dropdown
+$dropdown-head-bg: #dcf8ff;
+$dropdown-bg-active: #f4f9ff;
+$dropdown-border-color: #3ca7ff;
+$dropdown-text-color: #3ca7ff;
+$dropdown-text-color-active:#3ca7ff;
+
+//Dialog
+$dialog-head-font-size: $font-size-16;

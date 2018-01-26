@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import 'style.variables';
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+/*@import '../node_modules/@cccis/angular-common/dist/scss/common.business-components';*/
+@import 'common.business-components';
+
+.ui-select-container {
+  color: $dropdown-text-color;
+
+  .ui-select-toggle.btn-default {
+    border-color: $dropdown-border-color;
+    color: $dropdown-text-color;
+  }
+  .ui-select-toggle.btn-default:focus {
+    background-color: white;
+  }
+  .ui-select-toggle.btn-default:active:focus {
+    border-color: $dropdown-border-color;
+  }
+  .dropdown-icon {
+    background-position: -34px -60px;
+  }
+  .dropdown-menu {
+    min-width: 100%;
+  }
+}
+
+body {
+  font-size: 12px;
+  font-family: 'Microsoft YaHei', 'Arial', 'SimSun';
+  /*min-height: 600px;*/
+  min-width: 1260px;
+  /*overflow-y: hidden;*/
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.navbar-default {
+  background-color: #fff !important;
+  border-color: #e0e0e0 !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.175);
+}
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 10px 0px 10px 0px !important;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar-default .navbar-brand {
+  color: #fdfdfd !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #666 !important;
+  padding-top:15px;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+  color: #666 !important;
+  background-color: #fff;
+}
+
+.header-placeholder {
+  height: 50px;
+}
+
+.brand-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.home-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.evc-content {
+  padding:10px;
+}
+.evc-content a{
+  color: #555555;
+}
+
+.evc-content a:hover, a:focus {
+  color: #555555;
+  text-decoration: underline;
+}

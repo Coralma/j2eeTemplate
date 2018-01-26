@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,QAAQ;EACN,UAAU,EAAE,MAAM",
+"sources": ["common.business-components.scss"],
+"names": [],
+"file": "common.business-components.css"
+}

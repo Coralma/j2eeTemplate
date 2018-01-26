@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+">
+
+	<bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="packagesToScan" value="com.cccis"/>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+		</property>
+
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="hibernate.multi_tenant_connection_provider" value-ref="tenantProvider"/>
+                <entry key="hibernate.tenant_identifier_resolver">
+                    <bean class="com.cccis.base.multiple.CCCISCurrentTenantIdentifierResolver"/>
+                </entry>
+            </map>
+        </property>
+
+		<property name="jpaProperties">
+			<props>
+                <prop key="hibernate.multiTenancy">DATABASE</prop>
+                <prop key="hibernate.dialect">com.cccis.foundation.pub.hibernate.CCCOracle10gDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.default_cache_concurrency_strategy">READ_WRITE</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.ejb.interceptor">com.cccis.foundation.pub.hibernate.HibernateEntityInterceptor</prop>
+				<prop key="javax.persistence.lock.timeout">5000</prop>
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+			</props>
+		</property>
+	</bean>
+
+    <bean class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="middle"/>
+    </bean>
+
+
+    <bean id="tenantProvider" class="com.cccis.base.multiple.CCCISMultiTenantConnectionProvider">
+        <constructor-arg>
+            <map>
+                <entry key="middle" value-ref="middle"/>
+                <entry key="result" value-ref="result"/>
+            </map>
+        </constructor-arg>
+        <property name="defaultDSName" value="middle"/>
+    </bean>
+
+    <tx:annotation-driven/>
+
+    <bean name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <beans profile="development">
+        <bean id="middle" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+            <property name="jdbcUrl" value="${jdbc.middle.databaseURL}"/>
+            <property name="username" value="${jdbc.middle.username}"/>
+            <property name="password" value="${jdbc.middle.password}"/>
+            <property name="maximumPoolSize" value="20"/>
+        </bean>
+
+
+        <bean id="result" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+            <property name="jdbcUrl" value="${jdbc.result.databaseURL}"/>
+            <property name="username" value="${jdbc.result.username}"/>
+            <property name="password" value="${jdbc.result.password}"/>
+            <property name="maximumPoolSize" value="20"/>
+        </bean>
+    </beans>
+
+    <beans profile="default">
+        <bean id="middle" class="org.springframework.jndi.JndiObjectFactoryBean">
+            <property name="jndiName">
+                <value>jdbc/middle</value>
+            </property>
+        </bean>
+
+
+        <bean id="result" class="org.springframework.jndi.JndiObjectFactoryBean">
+            <property name="jndiName">
+                <value>jdbc/result</value>
+            </property>
+        </bean>
+    </beans>
+</beans>

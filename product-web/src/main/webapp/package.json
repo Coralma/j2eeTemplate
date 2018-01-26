@@ -1,0 +1,8 @@
+{
+  "name": "evc",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@cccis/angular-common": "0.1.35"
+  }
+}

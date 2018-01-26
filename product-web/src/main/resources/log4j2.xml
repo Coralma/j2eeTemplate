@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration name="drp">
+
+    <Appenders>
+
+        <Console name="console" direct="true">
+            <PatternLayout pattern="%-d{ISO8601} INFO %5p %c{2}  %MDC{info} - %m%n %throwable{none}"/>
+        </Console>
+
+        <Console name="errorConsole" direct="true">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%-d{ISO8601} ERROR %5p %c{2}:%L - %m%n %throwable{short} %n"/>
+        </Console>
+
+    </Appenders>
+
+
+    <Loggers>
+        <Logger level="debug" name="org.springframework.orm.jpa"/>
+
+        <AsyncLogger level="info" name="com.cccis" additivity="false" includeLocation="false">
+            <appender-ref ref="console"/>
+            <appender-ref ref="errorConsole"/>
+        </AsyncLogger>
+
+    </Loggers>
+</configuration>
